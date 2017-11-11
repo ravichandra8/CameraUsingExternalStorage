@@ -65,14 +65,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_TAKE_PHOTO && resultCode == RESULT_OK) {
 //            Uri path=data.getData();
+            File f=new File(fileUri.getPath());
             Log.d("url",fileUri.getPath().toString());
-//           Picasso.with(getApplicationContext())
-//                   .load(fileUri.getPath())
-//                   .placeholder(R.mipmap.ic_launcher)
-//                   .into(imagepreview);
-            Glide.with(getApplicationContext())
-                    .load(fileUri.getPath())
-                    .into(imagepreview);
+           Picasso.with(getApplicationContext())
+                   .load(f)
+                   .placeholder(R.mipmap.ic_launcher)
+                   .into(imagepreview);
+//            Glide.with(getApplicationContext())
+//                    .load(fileUri.getPath())
+//                    .into(imagepreview);
           //  Log.d("path is",photoURI.getPath());
         }
     }
